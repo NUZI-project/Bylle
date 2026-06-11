@@ -737,7 +737,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-bottom: 1px solid var(--border);
 }
 .loc-item:last-of-type { border-bottom: none; }
-.loc-icon { font-size: 22px; margin-top: 2px; }
+.loc-icon { font-size: 22px; margin-top: 2px; flex-shrink: 0; }
 .loc-item strong {
   display: block;
   font-size: 13px;
@@ -758,11 +758,19 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 12px;
   margin-top: 32px;
 }
+.loc-actions .btn-primary,
+.loc-actions .btn-outline {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
 .location-map iframe {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
+  width: 100%;
+  display: block;
 }
-
 /* === FOOTER === */
 .footer { background: var(--coffee); color: var(--cream); padding: 64px 0 0; }
 .footer-inner {
@@ -884,7 +892,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .about-badge { left: 16px; top: 16px; }
   .fav-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; }
   .fav-card--featured { transform: none; }
-  .location-grid { grid-template-columns: 1fr; }
+  .location-grid { grid-template-columns: 1fr; gap: 32px; }
+  .location-map iframe { height: 300px; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
 @media (max-width: 640px) {
@@ -913,4 +922,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .about-stats { gap: 20px; }
   .fab-wa span { display: none; }
   .fab-wa { padding: 12px; width: 48px; height: 48px; justify-content: center; }
+
+  /* Location mobile fix */
+  .location-grid { grid-template-columns: 1fr; gap: 28px; }
+  .loc-actions { gap: 10px; }
+  .loc-actions .btn-primary,
+  .loc-actions .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+  .location-map iframe { height: 260px; border-radius: var(--radius-md); }
 }
